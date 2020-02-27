@@ -5,7 +5,7 @@ import csv
 class Alumnos:
     def GET(self):
         try:
-            datos=web.input()     #Los datos introducidos por el usuario se almacenaran en datos
+            datos=web.input()     #Los datos introducidos por el usuario se almacenaran en datoS
             if datos['token']=="1234":#Si el usuario ingresa bien el token se declarara lo siguiente
                 result=[]           #Un arreglo
                 result2={}          #Un diccionario

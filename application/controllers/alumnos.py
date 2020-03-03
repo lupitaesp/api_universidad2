@@ -56,7 +56,6 @@ class Alumnos:
                     with open ('static/csv/alumnos.csv','r') as csvfiles:
                         reader =csv.DictReader(csvfiles)
                         l = []
-                        val = 0
                         for row in reader:
                             result = []
                             if  str(row['matricula']) == datos['matricula']:
@@ -91,8 +90,6 @@ class Alumnos:
                             writer = csv.writer(csvfiles)
                             for x in l:
                                 writer.writerow(x)
-                        if val == 0:
-                            result.append("NO SE ENCONTRO EL DATO")
                     return json.dumps("SE HA ACTUALIZADO UN REGISTRO")
                 elif datos['action'] == "delete":
                     consulta={}
@@ -101,7 +98,6 @@ class Alumnos:
                     with open ('static/csv/alumnos.csv','r') as csvfiles:
                         reader =csv.DictReader(csvfiles)
                         m = []
-                        val = 0
                         for row in reader:
                             result = []
                             if  str(row['matricula']) == datos['matricula']:
@@ -124,8 +120,6 @@ class Alumnos:
                             with open ('static/csv/alumnos.csv','a+', newline = '') as csvfiles:
                                 writer = csv.writer(csvfiles)
                                 writer.writerow(result)
-                            if val == 0:
-                                result.append("NO EXISTE NIGUN VALOR")
                         return json.dumps("SE HA ELIMINADO UN REGISTRO")
                 else:                   
                     result2={}

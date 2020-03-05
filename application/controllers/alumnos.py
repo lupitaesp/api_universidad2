@@ -91,36 +91,6 @@ class Alumnos:
                             for x in l:
                                 writer.writerow(x)
                     return json.dumps("SE HA ACTUALIZADO UN REGISTRO")
-                elif datos['action'] == "delete":
-                    consulta={}
-                    consulta['version']="0.4.0"
-                    consulta['status']="200 ok"
-                    with open ('static/csv/alumnos.csv','r') as csvfiles:
-                        reader =csv.DictReader(csvfiles)
-                        m = []
-                        for row in reader:
-                            result = []
-                            if  str(row['matricula']) == datos['matricula']:
-                                with open ('static/csv/alumnos.csv','w') as csvfile:
-                                    writer = csv.writer(csvfile)
-                                    writer.writerow(row)
-                                    print("OKEY")
-                            else:
-                                fil1 = row['matricula'] 
-                                fil2 = row['nombre']
-                                fil3 = row['primer_apellido']
-                                fil4 = row['segundo_apellido']
-                                fil5 = row['carrera']
-                                result.append(fil1)
-                                result.append(fil2)
-                                result.append(fil3)
-                                result.append(fil4)
-                                result.append(fil5)
-                                m.append(result)
-                            with open ('static/csv/alumnos.csv','a+', newline = '') as csvfiles:
-                                writer = csv.writer(csvfiles)
-                                writer.writerow(result)
-                        return json.dumps("SE HA ELIMINADO UN REGISTRO")
                 else:                   
                     result2={}
                     result2['Version']="0.5.0"
